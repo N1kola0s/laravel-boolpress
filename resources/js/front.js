@@ -8,7 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//importiamo il componente App
+import App from './views/App';
 
 
 /**
@@ -17,6 +18,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+
 const app = new Vue({
-    el: '#app'
+    el: '#root',
+    render: h => h(App) //mostriamo App all'avvio di Vue
 });
