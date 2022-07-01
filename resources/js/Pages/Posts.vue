@@ -19,6 +19,7 @@
                     <div class="card-body">
                       <h3>{{ post.title }}</h3>
                       <p>{{trimText(post.content)}}</p>
+                      <router-link :to="{name:'post', params:{id:post.id}}">read more </router-link>
                     </div>
                     <!-- .card-body -->
 
@@ -186,8 +187,8 @@
         })
       },
       trimText(text){
-        if(text.length > 1){
-          return text.slice(0, 1) + '...'
+        if(text.length > 50){
+          return text.slice(0, 50) + '...'
         }
         return text;
       }

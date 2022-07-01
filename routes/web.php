@@ -28,12 +28,13 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
 
     /* Admin posts */
     Route::resource('posts', 'PostController');
+    
 
      /* Admin categories */
     Route::resource('categories', 'CategoryController')->except(['show','create','edit']);
 
       /* Admin tags */
-      Route::resource('tags', 'TagController')->except(['show','create','edit']);
+    Route::resource('tags', 'TagController')->except(['show','create','edit']);
 });
 
 
