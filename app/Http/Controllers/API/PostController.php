@@ -15,6 +15,15 @@ class PostController extends Controller
 
     public function show($id){
         $post= Post::with (['tags', 'category'])->where('id', $id)->first();
-        return $post;
-    }
+        if($post){
+            return $post;
+        } else {
+            ddd($post);
+            return response () -> json([
+               'status_code'=> 404,
+               'status_text'=> 'not found'
+        ]);
+           }
+       }
+
 }

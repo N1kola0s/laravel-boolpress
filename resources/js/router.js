@@ -12,7 +12,7 @@ import Home from './Pages/Home'
 import About from './Pages/About'
 import Posts from './Pages/Posts'
 import Post from './Pages/Post'
-/* import NotFound from './Pages/NotFound' */
+import NotFound from './Pages/NotFound'
 
 
 // 2. Define some routes
@@ -39,13 +39,12 @@ const routes = [{
         path: '/posts/:id',
         name: 'post',
         component: Post
+    },
+    {
+        path: "/*",
+        name: "not-found",
+        component: NotFound
     }
-    /* ,
-        {
-            path:"/",
-            name: "not-found",
-            component:NotFound
-        } */
 ]
 
 // 3. Create the router instance and pass the `routes` option

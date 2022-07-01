@@ -24,12 +24,21 @@ export default {
     data(){
       return{
         post:'',
+        loading:true
       }
     },
     mounted(){
         axios.get('/api/posts/' + this.$route.params.id)
         .then(response =>{
-            this.post = response.data
+            if (response.data.status_code === 404){
+                console.log('404 page not found');
+                this.$router.push({name:'not-found'})
+                this.loading=false
+            }else {
+                console.log('page found');
+                this.post=response.data
+                this.loading=false
+            }
             
         })
         .catch(e => {
